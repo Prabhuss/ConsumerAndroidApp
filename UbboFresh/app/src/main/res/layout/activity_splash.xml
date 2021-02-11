@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_height="@dimen/_150sdp"
+            android:layout_width="@dimen/_150sdp"
+            android:src="@drawable/ic_launcher_png" />
+        <TextView
+            android:layout_below="@+id/imageView"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/splash_name"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/_20sdp"
+            android:text="@string/app_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <ProgressBar
+            android:layout_marginTop="@dimen/_7sdp"
+            android:layout_below="@+id/splash_name"
+            android:indeterminateTint="@color/family_red"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
+    <TextView
+        android:id="@+id/biz_create"
+        android:layout_above="@+id/biz_text"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/_15sdp"
+        android:text="Created with"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <ImageView
+        android:id="@+id/biz_text"
+        android:layout_marginBottom="@dimen/_35sdp"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/splsh_logo_biz"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_60sdp"/>
+
+</RelativeLayout>

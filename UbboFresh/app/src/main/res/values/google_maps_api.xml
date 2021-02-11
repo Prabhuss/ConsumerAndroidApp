@@ -1,0 +1,24 @@
+<resources>
+    <!--
+    TODO: Before you run your application, you need a Google Maps API key.
+
+    To get one, follow this link, follow the directions and press "Create" at the end:
+
+    https://console.developers.google.com/flows/enableapi?apiid=maps_android_backend&keyType=CLIENT_SIDE_ANDROID&r=A7:B4:DA:9E:4E:7A:D9:50:0E:A2:FA:56:E0:3C:19:6C:CF:FB:4D:4B%3Bcom.ubbo.ubbofresh.ui.cart
+
+    You can also add your credentials to an existing key, using these values:
+
+    Package name:
+    com.ubbo.ubbofresh.ui.cart
+
+    SHA-1 certificate fingerprint:
+    A7:B4:DA:9E:4E:7A:D9:50:0E:A2:FA:56:E0:3C:19:6C:CF:FB:4D:4B
+
+    Alternatively, follow the directions here:
+    https://developers.google.com/maps/documentation/android/start#get-key
+
+    Once you have your key (it starts with "AIza"), replace the "google_maps_key"
+    string in this file.
+    -->
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyAAGhhOf6dvKrgvXvf1kb2e6kFvjHBhUE8</string>
+</resources>

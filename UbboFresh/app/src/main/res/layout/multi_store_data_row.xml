@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="MulistoreData"
+            type="com.getpy.express.data.model.MultiStoreDataModel" />
+        <variable
+            name="view"
+            type="com.getpy.express.ui.multistore.MultiStoreActivity" />
+    </data>
+    <androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_marginLeft="@dimen/_5sdp"
+        android:layout_marginRight="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_7sdp"
+        android:orientation="vertical"
+        app:cardElevation="@dimen/_10sdp"
+        android:elevation="@dimen/_10sdp"
+        app:contentPadding="@dimen/_7sdp"
+        app:cardCornerRadius="@dimen/_5sdp"
+        android:layout_marginBottom="@dimen/_7sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imageview"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/ic_launcher_new2"
+                android:layout_width="@dimen/_70sdp"
+                app:cardCornerRadius="@dimen/_5sdp"
+                android:scaleType="fitXY"
+                android:layout_height="@dimen/_70sdp"/>
+            <TextView
+                android:id="@+id/store_name"
+                android:text="Families Hyper Mart"
+                android:textSize="@dimen/_12sdp"
+                android:textColor="@color/black"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_toRightOf="@+id/imageview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/store_addr"
+                android:layout_toRightOf="@+id/imageview"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_below="@+id/store_name"
+
+                android:textSize="@dimen/_10sdp"
+                android:textColor="@color/quantum_grey500"
+                android:text="Address:216/43,OLD NO.43,NEAR ESSAR PETROL BUNK OPPOSITE UDUPI GARDEN"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/store_pin"
+                android:layout_below="@+id/store_addr"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_toRightOf="@+id/imageview"
+                android:text="pincode:560049"
+                android:textColor="@color/quantum_grey600"
+                android:textSize="@dimen/_10sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

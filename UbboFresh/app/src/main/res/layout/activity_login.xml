@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.auth.LoginActivity">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cardCornerRadius="@dimen/_20sdp"
+            app:cardElevation="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_40sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:layout_marginBottom="@dimen/_50sdp">
+
+            <RelativeLayout
+                android:layout_margin="@dimen/_10sdp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/logo_image"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/ic_launcher_png"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="@dimen/_100sdp"/>
+
+                <TextView
+                    android:id="@+id/login_txt"
+                    android:layout_marginTop="@dimen/_40sdp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@+id/logo_image"
+                    android:text="@string/login"
+                    android:gravity="center"
+                    android:textSize="@dimen/_15sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:id="@+id/ent_mon_txt"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@+id/login_txt"
+                    android:text="@string/enter_mob_no_txt"
+                    android:gravity="center"
+                    android:textSize="@dimen/_13sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:id="@+id/hor_line_txt"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@+id/ent_mon_txt"
+                    android:text="-----"
+                    android:gravity="center"
+                    android:textSize="@dimen/_15sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginBottom="@dimen/_60sdp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:id="@+id/mob_num_edit_txt_layout"
+                        android:layout_above="@+id/sendOtpBut"
+                        android:background="@drawable/rounded_corner_wout_border"
+                        android:layout_marginBottom="@dimen/_20sdp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <EditText
+                            android:id="@+id/mobile_num_edit"
+                            android:hint="@string/mob_no_placeHolder"
+                            android:padding="@dimen/_7sdp"
+                            android:textSize="@dimen/_11sdp"
+                            android:inputType="number"
+                            android:background="@android:color/transparent"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/sendOtpBut"
+                        android:text="@string/send_otp"
+                        android:textSize="@dimen/_12sdp"
+                        android:gravity="center"
+                        android:background="@drawable/rounded_corner"
+                        android:layout_alignParentBottom="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_30sdp"/>
+                </LinearLayout>
+
+
+                <ProgressBar
+                    android:id="@+id/progress_bar"
+                    android:visibility="gone"
+                    android:indeterminateTint="@color/family_red"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+    </LinearLayout>
+</layout>

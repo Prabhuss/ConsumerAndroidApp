@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.editprofie.EditProfileActivity">
+
+        <RelativeLayout
+            android:id="@+id/edit_profile_layout"
+            android:layout_margin="@dimen/_10sdp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_130sdp">
+
+            <ImageView
+                android:id="@+id/back_imag"
+                android:padding="@dimen/_7sdp"
+                android:layout_alignParentLeft="true"
+                android:src="@drawable/ic_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/edit_profile_txt"
+                android:layout_above="@+id/profile_image"
+                android:text="@string/edit_profile"
+                android:textColor="@color/white"
+                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profile_image"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_80sdp"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/ic_account"
+                app:civ_border_width="2dp"
+                app:civ_border_color="@android:color/transparent"/>
+
+            <TextView
+                android:id="@+id/user_name"
+                android:layout_below="@+id/profile_image"
+                android:layout_centerHorizontal="true"
+                android:text="name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profile_image_edit"
+                android:layout_above="@+id/user_name"
+                android:layout_toRightOf="@+id/profile_image"
+                android:layout_marginLeft="-25dp"
+                android:layout_marginBottom="10dp"
+                android:layout_width="@dimen/_35sdp"
+                android:visibility="gone"
+                android:layout_height="@dimen/_35sdp"
+                android:src="@drawable/ic_edit"
+                app:civ_border_width="2dp"
+                app:civ_border_color="@color/family_red"/>
+
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_margin="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/details"
+                android:text="Details"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:textColor="@color/family_grey"
+                android:textSize="@dimen/_15sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <EditText
+                android:id="@+id/fname"
+                android:layout_below="@+id/details"
+                android:textColor="@color/family_grey"
+                android:textSize="@dimen/_13sdp"
+                android:hint="@string/fname"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:padding="@dimen/_7sdp"
+                android:background="@drawable/rectangle_corner_grey"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <EditText
+                android:id="@+id/lname"
+                android:layout_below="@+id/fname"
+                android:hint="@string/lname"
+                android:textColor="@color/family_grey"
+                android:textSize="@dimen/_13sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:padding="@dimen/_7sdp"
+                android:background="@drawable/rectangle_corner_grey"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <EditText
+                android:id="@+id/email"
+                android:hint="@string/email"
+                android:textColor="@color/family_grey"
+                android:textSize="@dimen/_13sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:padding="@dimen/_7sdp"
+                android:background="@drawable/rectangle_corner_grey"
+                android:layout_below="@id/lname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <EditText
+                android:id="@+id/gst_num"
+                android:layout_below="@id/email"
+                android:hint="@string/gst_num"
+                android:textColor="@color/family_grey"
+                android:textSize="@dimen/_13sdp"
+                android:padding="@dimen/_7sdp"
+                android:background="@drawable/rectangle_corner_grey"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/apply_changes"
+                android:layout_below="@+id/gst_num"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:background="@drawable/rounded_corner"
+                android:text="@string/applychanges"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <ProgressBar
+                android:id="@+id/pbar"
+                android:visibility="gone"
+                android:indeterminateTint="@color/family_red"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </RelativeLayout>
+
+
+    </LinearLayout>
+</layout>

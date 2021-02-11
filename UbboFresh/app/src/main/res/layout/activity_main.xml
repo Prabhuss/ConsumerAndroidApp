@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/draweLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        tools:openDrawer="start">
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/coordinate_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".ui.main.MainActivity">
+            <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/activity_main_appbarlayout"
+                android:layout_width="match_parent"
+                android:background="@android:color/white"
+                android:layout_height="@dimen/_82sdp"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:background="@android:color/white"
+                    android:weightSum="1"
+                    app:contentInsetStart="0dp"
+                    app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+                    <LinearLayout
+                        android:id="@+id/layout"
+                        android:orientation="vertical"
+                        android:gravity="center_vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_45sdp">
+                        <TextView
+                            android:id="@+id/select_store"
+                            android:text="Selected store"
+                            android:textSize="@dimen/_10sdp"
+                            android:textColor="@color/blue_color"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                        <TextView
+                            android:id="@+id/activity_main_toolbar_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="marquee"
+                            android:fadingEdge="horizontal"
+                            android:focusable="true"
+                            android:layout_centerVertical="true"
+                            android:focusableInTouchMode="true"
+                            android:marqueeRepeatLimit="marquee_forever"
+                            android:scrollHorizontally="true"
+                            android:singleLine="true"
+                            android:textColor="@android:color/black"
+                            android:textSize="@dimen/_13sdp" />
+                    </LinearLayout>
+                </androidx.appcompat.widget.Toolbar>
+                <androidx.cardview.widget.CardView
+                    app:cardElevation="@dimen/_10sdp"
+                    app:contentPadding="@dimen/_3sdp"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <RelativeLayout
+                        android:orientation="horizontal"
+                        android:layout_below="@+id/toolbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_30sdp">
+                        <ImageView
+                            android:id="@+id/search"
+                            android:src="@drawable/ic_search"
+                            android:layout_centerVertical="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/search_edit"
+                            android:layout_toRightOf="@+id/search"
+                            android:background="@android:color/transparent"
+                            android:textColor="@android:color/black"
+                            android:text="What are you looking for?"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/_40sdp"/>
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+            </com.google.android.material.appbar.AppBarLayout>
+
+
+            <fragment
+                android:id="@+id/fragment"
+                android:name="androidx.navigation.fragment.NavHostFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:defaultNavHost="true"
+                app:navGraph="@navigation/my_nav" />
+
+
+
+            <com.google.android.material.bottomappbar.BottomAppBar
+                android:id="@+id/bottomAppBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                app:fabCradleMargin="3dp"
+                app:fabCradleRoundedCornerRadius="@dimen/_10sdp"
+                app:fabCradleVerticalOffset="0dp">
+
+                <com.google.android.material.bottomnavigation.BottomNavigationView
+                    android:id="@+id/bottomNavigationView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="16dp"
+                    app:itemIconTint="@color/family_red"
+                    app:itemTextColor="@android:color/black"
+                    android:clipChildren="false"
+                    app:labelVisibilityMode="auto"
+                    android:background="@android:color/transparent"
+                    app:menu="@menu/bottom_nav_menu"/>
+
+            </com.google.android.material.bottomappbar.BottomAppBar>
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/app_name"
+                app:backgroundTint="@color/family_red"
+                app:tint="@color/white"
+                app:srcCompat="@drawable/ic_shoping_img"
+                app:layout_anchor="@id/bottomAppBar" />
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/nav_view"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            app:itemIconTint="@color/family_red"
+            app:headerLayout="@layout/nav_header_main"
+            app:menu="@menu/activity_main_drawer" />
+    </androidx.drawerlayout.widget.DrawerLayout>
+
+</layout>

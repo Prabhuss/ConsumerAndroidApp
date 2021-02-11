@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <androidx.coordinatorlayout.widget.CoordinatorLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <androidx.viewpager.widget.ViewPager
+                    android:id="@+id/viewPager"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_250sdp"/>
+                <LinearLayout
+                    android:id="@+id/SliderDots"
+                    android:layout_below="@+id/viewPager"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <androidx.core.widget.NestedScrollView
+                    android:id="@+id/nestedScrollView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:overScrollMode="never">
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_margin="@dimen/_7sdp"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                            <RelativeLayout
+                                android:orientation="vertical"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+                                <LinearLayout
+                                    android:id="@+id/layout11"
+                                    android:orientation="vertical"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content">
+                                        <LinearLayout
+                                            android:id="@+id/playout"
+                                            android:layout_marginRight="@dimen/_5sdp"
+                                            android:layout_toLeftOf="@+id/add_but"
+                                            android:orientation="vertical"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content">
+                                            <TextView
+                                                android:id="@+id/product_name"
+                                                android:textSize="@dimen/_14sdp"
+                                                android:padding="@dimen/_5sdp"
+                                                android:textColor="@android:color/black"
+                                                android:layout_marginBottom="@dimen/_5sdp"
+                                                android:text="Marico Veggie Clean Pouch 200ML"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"/>
+                                            <LinearLayout
+                                                android:padding="@dimen/_5sdp"
+                                                android:orientation="horizontal"
+                                                android:layout_width="wrap_content"
+                                                android:layout_marginBottom="@dimen/_5sdp"
+                                                android:layout_height="wrap_content">
+                                                <TextView
+                                                    android:id="@+id/yousave"
+                                                    android:text="you save"
+                                                    android:padding="@dimen/_1sdp"
+                                                    android:textColor="@android:color/white"
+                                                    android:background="#EE6A2E"
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"/>
+                                                <TextView
+                                                    android:id="@+id/discount"
+                                                    android:layout_marginLeft="@dimen/_5sdp"
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"/>
+                                            </LinearLayout>
+                                            <LinearLayout
+                                                android:padding="@dimen/_5sdp"
+                                                android:orientation="horizontal"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content">
+                                                <TextView
+                                                    android:id="@+id/price"
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"/>
+                                                <RelativeLayout
+                                                    android:layout_marginLeft="@dimen/_5sdp"
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content">
+                                                    <TextView
+                                                        android:id="@+id/mrp"
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"/>
+                                                    <TextView
+                                                        android:id="@+id/strike_line"
+                                                        android:layout_centerVertical="true"
+                                                        android:background="@color/family_red"
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="1dp"/>
+                                                </RelativeLayout>
+                                            </LinearLayout>
+                                        </LinearLayout>
+                                        <androidx.appcompat.widget.AppCompatButton
+                                            android:id="@+id/add_but"
+                                            android:text="add"
+                                            android:visibility="gone"
+                                            android:layout_centerVertical="true"
+                                            android:layout_margin="@dimen/_5sdp"
+                                            android:background="@drawable/rounded_corner_blue"
+                                            android:textColor="@android:color/white"
+                                            android:layout_alignParentRight="true"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="@dimen/_30sdp"/>
+                                    </RelativeLayout>
+
+                                    <TextView
+                                        android:id="@+id/prod_desc"
+                                        android:textSize="@dimen/_15sdp"
+                                        android:layout_marginTop="@dimen/_7sdp"
+                                        android:textColor="@android:color/black"
+                                        android:text="@string/product_desc"
+                                        android:textStyle="bold"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"/>
+
+                                    <TextView
+                                        android:id="@+id/desc"
+                                        android:padding="@dimen/_5sdp"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        />
+
+                                    <TextView
+                                        android:id="@+id/additional_info"
+                                        android:layout_marginTop="@dimen/_7sdp"
+                                        android:textSize="@dimen/_13sdp"
+                                        android:textStyle="bold"
+                                        android:padding="@dimen/_5sdp"
+                                        android:visibility="gone"
+                                        android:textColor="@android:color/black"
+                                        android:text="Additional Information"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"/>
+
+
+                                    <LinearLayout
+                                        android:background="@drawable/cell_shape"
+                                        android:orientation="vertical"
+                                        android:visibility="gone"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content">
+                                        <LinearLayout
+                                            android:background="@drawable/bottom_line"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content">
+                                            <TextView
+                                                android:text="Packae Dimensions"
+                                                android:layout_weight="2"
+                                                android:textColor="@color/white"
+                                                android:gravity="center_vertical"
+                                                android:background="@color/family_grey"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"/>
+                                            <TextView
+                                                android:id="@+id/pack_dem"
+                                                android:text="7.7*4.1*18.5cm"
+                                                android:layout_weight="1"
+                                                android:padding="@dimen/_5sdp"
+                                                android:layout_marginLeft="@dimen/_5sdp"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"/>
+                                        </LinearLayout>
+                                        <LinearLayout
+                                            android:background="@drawable/bottom_line"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content">
+                                            <TextView
+                                                android:text="Brand"
+                                                android:gravity="center_vertical"
+                                                android:layout_weight="2"
+                                                android:textColor="@color/white"
+                                                android:background="@color/family_grey"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"/>
+                                            <TextView
+                                                android:id="@+id/brand"
+                                                android:text="Veggie"
+                                                android:layout_weight="1"
+                                                android:padding="@dimen/_5sdp"
+                                                android:layout_marginLeft="@dimen/_5sdp"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"/>
+                                        </LinearLayout>
+                                        <LinearLayout
+                                            android:background="@drawable/bottom_line"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content">
+                                            <TextView
+                                                android:text="Manufacture"
+                                                android:layout_weight="2"
+                                                android:textColor="@color/white"
+                                                android:gravity="center_vertical"
+                                                android:background="@color/family_grey"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"/>
+                                            <TextView
+                                                android:id="@+id/manfac"
+                                                android:text="Marico,Ganesh Personal Care Products Pvt Ltd"
+                                                android:layout_weight="1"
+                                                android:padding="@dimen/_5sdp"
+                                                android:layout_marginLeft="@dimen/_5sdp"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"/>
+                                        </LinearLayout>
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content">
+                                            <TextView
+                                                android:text="Counry of Origin"
+                                                android:layout_weight="2"
+                                                android:gravity="center_vertical"
+                                                android:textColor="@color/white"
+                                                android:background="@color/family_grey"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"/>
+                                            <TextView
+                                                android:id="@+id/cntyor"
+                                                android:text="India"
+                                                android:layout_weight="1"
+                                                android:padding="@dimen/_5sdp"
+                                                android:layout_marginLeft="@dimen/_5sdp"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"/>
+                                        </LinearLayout>
+                                    </LinearLayout>
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:layout_below="@+id/layout11"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/_170sdp"/>
+                            </RelativeLayout>
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                </androidx.core.widget.NestedScrollView>
+            </LinearLayout>
+                </RelativeLayout>
+
+            </androidx.coordinatorlayout.widget.CoordinatorLayout>
+        </ScrollView>
+
+        <include
+            android:id="@+id/inclueLayout"
+            layout="@layout/sumary_layout_persistent_bottom_sheet" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+</layout>

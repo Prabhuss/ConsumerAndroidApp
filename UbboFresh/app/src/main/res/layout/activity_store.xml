@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.multistore.MultiStoreActivity">
+
+        <TextView
+            android:id="@+id/select_store"
+            android:textSize="@dimen/_15sdp"
+            android:background="@android:color/white"
+            android:text="@string/select_store"
+            android:gravity="center"
+            android:textColor="@android:color/black"
+            android:padding="@dimen/_10sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <RelativeLayout
+            android:layout_margin="@dimen/_10sdp"
+            android:layout_below="@id/select_store"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/welcome"
+                android:text="@string/welcome"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/_15sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/welcome1"
+                android:layout_below="@+id/welcome"
+                android:text="@string/welcome1"
+                android:textSize="@dimen/_15sdp"
+                android:textColor="@android:color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/line"
+                android:layout_below="@+id/welcome1"
+                android:background="@android:color/white"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"/>
+            <TextView
+                android:id="@+id/pull_down_txt"
+                android:layout_below="@+id/line"
+                android:padding="@dimen/_5sdp"
+                android:text="@string/pull_down_txt"
+                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view"
+                android:layout_below="@+id/pull_down_txt"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </RelativeLayout>
+
+        <ProgressBar
+            android:id="@+id/pbar"
+            android:indeterminateTint="@color/family_red"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+</layout>

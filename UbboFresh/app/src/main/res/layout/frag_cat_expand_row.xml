@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:orientation="vertical"
+            android:layout_margin="@dimen/_7sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <androidx.cardview.widget.CardView
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/header_view"
+                android:orientation="vertical"
+                app:cardCornerRadius="@dimen/_5sdp"
+                app:contentPadding="@dimen/_5sdp"
+                app:cardElevation="@dimen/_7sdp"
+                android:layout_margin="@dimen/_7sdp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_80sdp">
+
+                <RelativeLayout
+                    android:id="@+id/header_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <LinearLayout
+                            android:layout_centerVertical="true"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <ImageView
+                                android:id="@+id/imageview"
+                                android:src="@mipmap/ic_launcher_new2"
+                                android:layout_width="@dimen/_70sdp"
+                                android:layout_height="@dimen/_70sdp"/>
+                            <TextView
+                                android:id="@+id/textview"
+                                android:text="Grocery"
+                                android:layout_marginLeft="@dimen/_10sdp"
+                                android:textSize="@dimen/_13sdp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"/>
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/view"
+                            android:layout_toLeftOf="@+id/arrow_image_layot"
+                            android:background="@android:color/darker_gray"
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"/>
+
+                        <LinearLayout
+                            android:id="@+id/arrow_image_layot"
+                            android:layout_centerVertical="true"
+                            android:layout_alignParentRight="true"
+                            android:padding="@dimen/_7sdp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+                            <ImageView
+                                android:id="@+id/arrow_image"
+                                android:src="@drawable/ic_arrow_down"
+                                android:layout_width="@dimen/_20sdp"
+                                android:layout_height="@dimen/_20sdp"/>
+                        </LinearLayout>
+                    </RelativeLayout>
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/expand_layout"
+                app:cardElevation="@dimen/_10sdp"
+                android:elevation="@dimen/_10sdp"
+                app:cardCornerRadius="@dimen/_5sdp"
+                app:contentPadding="@dimen/_5sdp"
+                android:layout_margin="@dimen/_7sdp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/expand_recyclerview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+</layout>
