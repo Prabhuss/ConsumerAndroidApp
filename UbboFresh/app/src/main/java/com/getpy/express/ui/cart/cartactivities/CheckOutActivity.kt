@@ -298,7 +298,10 @@ class CheckOutActivity : AppCompatActivity(), KodeinAware {
                                 preference.getIntData(Constants.saveMerchantIdKey)
                         )
 
-                        adapter = CustomerAddressAdapter(this@CheckOutActivity, list)
+                        //Baypass local database
+                        adapter = response.data?.let{it}?.let { CustomerAddressAdapter(this@CheckOutActivity, it) }
+                        //comment above line and uncomment below line to use local database for customer address
+                        //adapter = CustomerAddressAdapter(this@CheckOutActivity, list)
                         binding.recyclerview.adapter = adapter
                         adapter?.notifyDataSetChanged()
                     } catch (E: Exception) {
