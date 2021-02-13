@@ -48,7 +48,7 @@ class NotificationActivity : AppCompatActivity() , KodeinAware
         lifecycleScope.launch {
             try {
                 val response=viewModel.campaignCustomerNotificationDetails(
-                        113,
+                        preference.getIntData(Constants.saveMerchantIdKey),
                         preference.getStringData(Constants.saveMobileNumkey),
                         preference.getStringData(Constants.saveaccesskey),
                         100,1)
