@@ -54,7 +54,7 @@ class SummaryBottomSheetFragment(val isCmgFrmHm:Boolean, val position:Int, val m
             binding.discount.showView()
             binding.yousave.showView()
             val discount = model.Discount
-            binding.discount.text= discount +"%"
+            binding.discount.text= discount?.toDouble()?.let { formatString(it) } +"%"
             binding.mrp.text = "(" + model.UnitPrice?.let { formatStrWithPrice(it) } + ")"//Constants.priceSymbol+model.mrp
             binding.strikeLine.text = "(" + model.UnitPrice?.let { formatStrWithPrice(it) } + ")"
         }else

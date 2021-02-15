@@ -89,6 +89,10 @@ class MainActivity : AppCompatActivity(),KodeinAware
 
 
         binding.fab.setOnClickListener(View.OnClickListener {
+            binding.activityMainAppbarlayout.showView()
+            binding.selectStore.hideView()
+            binding.activityMainToolbarTitle.setTypeface(UbboFreshApp.instance?.latoregular)
+            binding.activityMainToolbarTitle.setText("Offers")
             navcontroller?.navigate(R.id.shoppingFragment)
         })
 

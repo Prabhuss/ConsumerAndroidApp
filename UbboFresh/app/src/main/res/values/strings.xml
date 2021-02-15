@@ -60,6 +60,9 @@
     <string name="msg_token_fmt">msg_token_fmt</string>
     <string name="location_permission_not_granted">Location Permission not granted</string>
     <string name="product_desc"><u>Product Description</u></string>
+    <string name="special_inst">Special delivery instructions</string>
+    <string name="add_cooking_inst">Add delivery instructions (optional)</string>
+    <string name="instru_desc">Our store will follow your instructions on the best effort basis. No refunds or cancellations will be processed based on failure to comply with requests for special instructions</string>
     <string name="suc_str">Congratulations!! your order successfully placed.You can expect delivery with in 2 hours.Check "My Orders" tab for order status. Thank you."</string>
     <string name="fail_str">Sorry!! your order is failed.Please try again later.Check "My Orders" tab for order status. Thank you."</string>
 </resources>

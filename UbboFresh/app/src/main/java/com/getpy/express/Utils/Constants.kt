@@ -8,6 +8,7 @@ class Constants {
         val AlertBoxHeader = "Alert"
         val status="success"
         val message="access key does not match"
+        val verification_peniding="verification pending"
         val regtoken="yyy"
         val hashkey="xxx"
         var merchantid=292

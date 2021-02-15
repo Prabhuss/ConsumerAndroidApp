@@ -11,176 +11,187 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <ScrollView
-            android:fitsSystemWindows="true"
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipeRefresh"
+            android:layout_marginTop="@dimen/_90sdp"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <RelativeLayout
-                android:id="@+id/categories_layout"
-                android:layout_marginTop="@dimen/_90sdp"
-                android:layout_marginLeft="@dimen/_10sdp"
-                android:layout_marginRight="@dimen/_10sdp"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-                <androidx.viewpager.widget.ViewPager
-                    android:id="@+id/viewpager"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_130sdp"/>
-                <RelativeLayout
-                    android:id="@+id/cat_layout"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:layout_below="@+id/viewpager"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:id="@+id/categories"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Categories"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/_13sdp" />
-
-                <GridView
-                    android:id="@+id/cat_grid"
-                    android:layout_marginTop="@dimen/_7sdp"
-                    android:layout_below="@id/categories"
-                    android:numColumns="4"
-                    android:horizontalSpacing="@dimen/_10sdp"
-                    android:verticalSpacing="@dimen/_10sdp"
-                    android:stretchMode="columnWidth"
-                    android:gravity="center"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-            </RelativeLayout>
-            <RelativeLayout
-                android:id="@+id/spot_layout"
-                android:layout_below="@+id/cat_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:id="@+id/spotlight"
-                    android:text="SpotLight"
-                    android:textSize="@dimen/_15sdp"
-                    android:textColor="@android:color/black"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/spoot_list_recyler"
-                    android:layout_below="@id/spotlight"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-            </RelativeLayout>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/offers_recyclerview"
-                android:layout_below="@+id/spot_layout"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_marginBottom="@dimen/_10sdp"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_130sdp"/>
-
-            <ImageView
-                android:id="@+id/tailes1_iamge"
-                android:layout_below="@+id/offers_recyclerview"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_130sdp"/>
-            <RelativeLayout
-                android:id="@+id/top_selling_layout"
-                android:layout_below="@+id/tailes1_iamge"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:id="@+id/top_selling"
-                    android:text="Top Selling"
-                    android:textSize="@dimen/_15sdp"
-                    android:layout_alignParentLeft="true"
-                    android:textColor="@android:color/black"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-                <TextView
-                    android:id="@+id/viewall_top_selling"
-                    android:text="View All"
-                    android:layout_alignParentRight="true"
-                    android:textSize="@dimen/_15sdp"
-                    android:textColor="@color/family_red"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-            </RelativeLayout>
-            <HorizontalScrollView
-                android:id="@+id/topsellaout"
-                android:scrollbars="horizontal"
-                android:layout_below="@+id/top_selling_layout"
+            <ScrollView
+                android:fitsSystemWindows="true"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <RelativeLayout
-                    android:layout_marginTop="@dimen/_10sdp"
+                    android:id="@+id/categories_layout"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginRight="@dimen/_10sdp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/top_rated_recyclerview"
-                        android:nestedScrollingEnabled="false"
-                        android:layout_marginBottom="@dimen/_10sdp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="match_parent">
+                        <androidx.viewpager.widget.ViewPager
+                            android:id="@+id/viewpager"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_130sdp"/>
+                        <RelativeLayout
+                            android:id="@+id/cat_layout"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_below="@+id/viewpager"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:id="@+id/categories"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Categories"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_13sdp" />
+
+                            <GridView
+                                android:id="@+id/cat_grid"
+                                android:layout_marginTop="@dimen/_7sdp"
+                                android:layout_below="@id/categories"
+                                android:numColumns="4"
+                                android:horizontalSpacing="@dimen/_10sdp"
+                                android:verticalSpacing="@dimen/_10sdp"
+                                android:stretchMode="columnWidth"
+                                android:gravity="center"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent" />
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:id="@+id/spot_layout"
+                            android:layout_below="@+id/cat_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:id="@+id/spotlight"
+                                android:text="SpotLight"
+                                android:textSize="@dimen/_15sdp"
+                                android:textColor="@android:color/black"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"/>
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/spoot_list_recyler"
+                                android:layout_below="@id/spotlight"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"/>
+                        </RelativeLayout>
+
+                        <androidx.viewpager.widget.ViewPager
+                            android:id="@+id/offers_recyclerview"
+                            android:layout_below="@+id/spot_layout"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_130sdp"/>
+
+                        <ImageView
+                            android:id="@+id/tailes1_iamge"
+                            android:layout_below="@+id/offers_recyclerview"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_130sdp"/>
+                        <RelativeLayout
+                            android:id="@+id/top_selling_layout"
+                            android:layout_below="@+id/tailes1_iamge"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:id="@+id/top_selling"
+                                android:text="Top Selling"
+                                android:textSize="@dimen/_15sdp"
+                                android:layout_alignParentLeft="true"
+                                android:textColor="@android:color/black"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                            <TextView
+                                android:id="@+id/viewall_top_selling"
+                                android:text="View All"
+                                android:layout_alignParentRight="true"
+                                android:textSize="@dimen/_15sdp"
+                                android:textColor="@color/family_red"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                        </RelativeLayout>
+                        <HorizontalScrollView
+                            android:id="@+id/topsellaout"
+                            android:scrollbars="horizontal"
+                            android:layout_below="@+id/top_selling_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                            <RelativeLayout
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+                                <androidx.recyclerview.widget.RecyclerView
+                                    android:id="@+id/top_rated_recyclerview"
+                                    android:nestedScrollingEnabled="false"
+                                    android:layout_marginBottom="@dimen/_10sdp"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"/>
+                            </RelativeLayout>
+                        </HorizontalScrollView>
+
+
+
+                        <ImageView
+                            android:id="@+id/tailes2_image"
+                            android:layout_below="@+id/topsellaout"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_130sdp"/>
+
+                        <RelativeLayout
+                            android:id="@+id/deals_laout"
+                            android:layout_below="@+id/tailes2_image"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:id="@+id/deals_for"
+                                android:text="Deals For You"
+                                android:textSize="@dimen/_15sdp"
+                                android:layout_alignParentLeft="true"
+                                android:textColor="@android:color/black"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                            <TextView
+                                android:id="@+id/view_all"
+                                android:layout_alignParentRight="true"
+                                android:text="View All"
+                                android:textSize="@dimen/_13sdp"
+                                android:textColor="@color/family_red"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                        </RelativeLayout>
+
+                        <HorizontalScrollView
+                            android:id="@+id/deals_layut_scroll"
+                            android:layout_below="@+id/deals_laout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <RelativeLayout
+                                android:id="@+id/deals_layout"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+                                <androidx.recyclerview.widget.RecyclerView
+                                    android:id="@+id/deals_for_you"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"/>
+                            </RelativeLayout>
+                        </HorizontalScrollView>
+
+                        <RelativeLayout
+                            android:layout_below="@+id/deals_layut_scroll"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_150sdp"/>
+                    </RelativeLayout>
+
+
                 </RelativeLayout>
-            </HorizontalScrollView>
+            </ScrollView>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-
-
-            <ImageView
-                android:id="@+id/tailes2_image"
-                android:layout_below="@+id/topsellaout"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_130sdp"/>
-
-            <RelativeLayout
-                android:id="@+id/deals_laout"
-                android:layout_below="@+id/tailes2_image"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:id="@+id/deals_for"
-                    android:text="Deals For You"
-                    android:textSize="@dimen/_15sdp"
-                    android:layout_alignParentLeft="true"
-                    android:textColor="@android:color/black"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-                <TextView
-                    android:id="@+id/view_all"
-                    android:layout_alignParentRight="true"
-                    android:text="View All"
-                    android:textSize="@dimen/_13sdp"
-                    android:textColor="@color/family_red"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-            </RelativeLayout>
-
-            <HorizontalScrollView
-                android:id="@+id/deals_layut_scroll"
-                android:layout_below="@+id/deals_laout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <RelativeLayout
-                    android:id="@+id/deals_layout"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/deals_for_you"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
-                </RelativeLayout>
-            </HorizontalScrollView>
-
-                <RelativeLayout
-                    android:layout_below="@+id/deals_layut_scroll"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_150sdp"/>
-
-            </RelativeLayout>
-        </ScrollView>
         <ProgressBar
             android:id="@+id/pbar"
             android:indeterminateTint="@color/family_red"

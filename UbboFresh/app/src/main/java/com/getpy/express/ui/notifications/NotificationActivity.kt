@@ -56,13 +56,7 @@ class NotificationActivity : AppCompatActivity() , KodeinAware
                 {
                     val adapater =
                             response.data?.let {
-                                NoticationsAdater(this@NotificationActivity, it, object :
-                                        NoticationsAdater.OnItemClickListener {
-                                    override fun onItemClick(item: CampaignCustomerNotificationData?) {
-                                        TODO("Not yet implemented")
-                                    }
-                                })
-                            }
+                                NoticationsAdater(this@NotificationActivity, it)}
                     binding.recyclervew.adapter = adapater
                 }else {
                     okDialogWithOneAct(Constants.appName,response.message.toString())

@@ -20,8 +20,7 @@
                 android:layout_height="match_parent">
                 <RelativeLayout
                     android:id="@+id/image_layout"
-                    android:orientation="vertical"
-                    android:gravity="center"
+                    android:layout_above="@+id/strike_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <ImageView
@@ -29,21 +28,20 @@
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="@dimen/_5sdp"
                         android:src="@drawable/ic_no_image_found"
-                        android:layout_width="@dimen/_60sdp"
-                        android:layout_height="@dimen/_60sdp"/>
+                        android:layout_width="@dimen/_90sdp"
+                        android:layout_height="@dimen/_90sdp"/>
                     <TextView
                         android:id="@+id/text1"
                         android:layout_below="@id/image"
                         android:maxLines="4"
-                        android:layout_centerHorizontal="true"
+                        android:layout_centerHorizontal="false"
                         android:layout_marginTop="@dimen/_5sdp"
-                        android:text="Aarati Premium rice-5kg"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
                 </RelativeLayout>
                 <RelativeLayout
                     android:id="@+id/strike_layout"
-                    android:layout_centerHorizontal="true"
+                    android:layout_centerHorizontal="false"
                     android:layout_above="@+id/but_layout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">

@@ -51,5 +51,12 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"  />
+        <ProgressBar
+            android:id="@+id/pbar"
+            android:indeterminateTint="@color/family_red"
+            android:visibility="gone"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

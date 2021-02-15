@@ -16,10 +16,7 @@ import com.microsoft.appcenter.AppCenter
 import com.microsoft.appcenter.analytics.Analytics
 import com.microsoft.appcenter.crashes.Crashes
 import com.getpy.express.R
-import com.getpy.express.Utils.Constants
-import com.getpy.express.Utils.NoInternetExcetion
-import com.getpy.express.Utils.networkDialog
-import com.getpy.express.Utils.okDialogWithOneAct
+import com.getpy.express.Utils.*
 import com.getpy.express.data.model.CustomerInvoiceData
 import com.getpy.express.data.model.GetOrderResponse
 import com.getpy.express.data.preferences.PreferenceProvider
@@ -77,6 +74,7 @@ class MyOrdersActivity : AppCompatActivity(),KodeinAware {
         loadRunnable= Runnable {
             getOrders()
         }
+        binding.pbar.show()
         getOrders()
     }
     private fun setupViewPager(viewPager: ViewPager,response: GetOrderResponse) {
@@ -159,6 +157,7 @@ class MyOrdersActivity : AppCompatActivity(),KodeinAware {
                       startDate,
                       10, currentPage,
                       endDate)
+                  binding.pbar.dismiss()
                   if(getOrdResponse?.status.equals("ERROR"))
                   {
                       okDialogWithOneAct(Constants.appName,"No orders for this store")
@@ -172,13 +171,16 @@ class MyOrdersActivity : AppCompatActivity(),KodeinAware {
 
               }catch (e: NoInternetExcetion)
               {
+                  binding.pbar.dismiss()
                   networkDialog()
               }catch (e:CancellationException)
               {
+                  binding.pbar.dismiss()
                   Log.i("scope","job is canceled")
               }
               catch (e:Exception)
               {
+                  binding.pbar.dismiss()
                   okDialogWithOneAct("Error",e.message.toString())
               }
           }

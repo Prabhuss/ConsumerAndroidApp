@@ -8,6 +8,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProviders
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.microsoft.appcenter.analytics.Analytics
 import com.getpy.express.R
 import com.getpy.express.UbboFreshApp
@@ -48,6 +49,13 @@ class MultiStoreActivity : AppCompatActivity(),KodeinAware  {
         binding.welcome.setTypeface(UbboFreshApp.instance?.latobold)
         binding.welcome1.setTypeface(UbboFreshApp.instance?.latoregular)
         binding.pullDownTxt.setTypeface(UbboFreshApp.instance?.latoregular)
+
+        binding.swipeRefresh.setOnRefreshListener(object:SwipeRefreshLayout.OnRefreshListener{
+            override fun onRefresh() {
+                callMutistore()
+            }
+
+        })
     }
 
     fun callCategories(model: MultiStoreDataModel)
@@ -99,6 +107,8 @@ class MultiStoreActivity : AppCompatActivity(),KodeinAware  {
                          preference.getStringData(Constants.saveMobileNumkey),
                          Constants.merchantid)
                  binding.pbar.dismiss()
+                 if(binding.swipeRefresh!=null)
+                 binding.swipeRefresh.isRefreshing = false
                  if(multires.status?.toLowerCase().equals(Constants.status))
                  {
                      adapter= multires.data?.let { MultiStoreAdater(this@MultiStoreActivity,it,object:MultiStoreAdater.OnItemClickListener{
@@ -112,7 +122,11 @@ class MultiStoreActivity : AppCompatActivity(),KodeinAware  {
                      if(multires.message?.toLowerCase().equals(Constants.message))
                      {
                          okDialogWithNavigateToLogin(this@MultiStoreActivity,preference,Constants.appName,multires.message.toString())
-                     }else
+                     }else if(multires.message?.toLowerCase().equals(Constants.verification_peniding))
+                     {
+                         okDialogWithNavigateToLogin(this@MultiStoreActivity,preference,Constants.appName,multires.message.toString())
+                     }
+                     else
                      {
                          okDialogWithOneAct(Constants.appName,multires.message.toString())
                      }

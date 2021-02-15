@@ -21,6 +21,8 @@ import com.getpy.express.R
 import com.getpy.express.UbboFreshApp
 import com.getpy.express.Utils.*
 import com.getpy.express.adapter.CartItmesAdapter
+import com.getpy.express.bottomsheet.DemoBottomSheetFragment
+import com.getpy.express.bottomsheet.InstructionBottomSheetFragment
 import com.getpy.express.data.db.AppDataBase
 import com.getpy.express.data.preferences.PreferenceProvider
 import com.getpy.express.databinding.FragmentCartBinding
@@ -113,6 +115,12 @@ class CartFragment : InjectionFragment() {
                 MainActivity.navcontroller?.navigate(R.id.action_cartFragment_to_productsFragment)
             }
         }
+
+        binding.instrucText.setOnClickListener {
+            val sheet = InstructionBottomSheetFragment()
+            sheet.show(activity?.supportFragmentManager!!, "DemoBottomSheetFragment")
+        }
+
 
         init()
         cartItems()

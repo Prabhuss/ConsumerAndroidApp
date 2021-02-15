@@ -23,9 +23,19 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
 
+                <TextView
+                    android:id="@+id/instruc_text"
+                    android:layout_below="@+id/recyclerview"
+                    android:textColor="@android:color/black"
+                    android:padding="@dimen/_7sdp"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/add_cooking_inst"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
                 <RelativeLayout
                     android:id="@+id/price_details_laout"
-                    android:layout_below="@+id/recyclerview"
+                    android:layout_below="@+id/instruc_text"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">

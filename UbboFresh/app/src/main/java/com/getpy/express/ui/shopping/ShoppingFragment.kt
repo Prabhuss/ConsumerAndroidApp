@@ -141,14 +141,18 @@ class ShoppingFragment : InjectionFragment() {
                 }
             }catch (e: NoInternetExcetion)
             {
+                binding.pbar.dismiss()
                 activity?.networkDialog()
             }catch (e:CancellationException)
             {
+                binding.pbar.dismiss()
                 Log.i("scope","job is canceled")
             }
             catch (e:Exception)
             {
-                activity?.okDialogWithOneAct("Error",e.message.toString())
+                binding.pbar.dismiss()
+                e.printStackTrace()
+                activity?.okDialogWithOneAct("Error","No products on offer")
             }
 
         }

@@ -105,17 +105,17 @@ class CheckOutActivity : AppCompatActivity(), KodeinAware {
             if(adapter?.getModel()!=null) {
                 customerAddressData=adapter?.getModel()
                 if (!adapter?.getModel()!!.ischecked) {
-                    okDialogWithOneAct(Constants.AlertBoxHeader, "Please choose address")
+                    okDialogWithOneAct(Constants.AlertBoxHeader, "No delivery address selected")
                     return@OnClickListener
                 }
             }else
             {
-                okDialogWithOneAct(Constants.AlertBoxHeader, "Please choose address")
+                okDialogWithOneAct(Constants.AlertBoxHeader, "No delivery address selected")
                 return@OnClickListener
             }
             if(!binding.checkbox.isChecked)
             {
-                okDialogWithOneAct(Constants.AlertBoxHeader,"Please choose payment type")
+                okDialogWithOneAct(Constants.AlertBoxHeader,"Please select payment option")
                 return@OnClickListener
             }
 
@@ -245,9 +245,13 @@ class CheckOutActivity : AppCompatActivity(), KodeinAware {
         }
         order_details.add("InvoiceItem",InvoiceItem)
         jsonObject.add("order_details",order_details)
+
+        binding.pbar.show()
+
         lifecycleScope.launch {
           try {
                  val response=viewModel.createOrder(jsonObject)
+                 binding.pbar.dismiss()
                  if(response.status.equals("Failure"))
                  {
                      val intent=Intent(this@CheckOutActivity,OrderStatusActivity::class.java)
@@ -263,13 +267,16 @@ class CheckOutActivity : AppCompatActivity(), KodeinAware {
                  }
              }catch (e: NoInternetExcetion)
              {
+                 binding.pbar.dismiss()
                  networkDialog()
              }catch (e:CancellationException)
              {
+                 binding.pbar.dismiss()
                  Log.i("scope","job is canceled")
              }
              catch (e:Exception)
              {
+                 binding.pbar.dismiss()
                  okDialogWithOneAct("Error",e.message.toString())
              }
          }
