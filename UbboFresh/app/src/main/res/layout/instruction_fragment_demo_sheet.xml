@@ -43,7 +43,7 @@
                 android:hint="@string/add_cooking_inst"
                 android:layout_below="@+id/view"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"/>
+                android:layout_height="wrap_content"/>
             <TextView
                 android:id="@+id/inst_desc"
                 android:layout_marginTop="@dimen/_10sdp"

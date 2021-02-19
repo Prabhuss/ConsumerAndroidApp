@@ -52,42 +52,30 @@ class HomeFragment() : InjectionFragment() {
     private var topProductsResponse:ProductsResponse?=null
     private var dealsProductsResponse:ProductsResponse?=null
     private var getOfferDetailsData:ArrayList<GetOfferDetailsData>?=null
-
+    private var spotLightAdapter:SpotLightScrollAdapter?=null
     var NUM_PAGES=0
     var currentPage = 0
     var timer: Timer? = null
     val DELAY_MS: Long = 500 //delay in milliseconds before task is to be executed
-    val PERIOD_MS: Long = 3000 // time in milliseconds between successive task executions.
-
-
+    val PERIOD_MS: Long = 4000 // time in milliseconds between successive task executions.
     var NUM_PAGES_offers=0
     var currentPage_offers = 0
     var timer_offers: Timer? = null
     val DELAY_MS_offers: Long = 500 //delay in milliseconds before task is to be executed
     val PERIOD_MS_offers: Long = 3000 // time in milliseconds between successive task executions.
-
-
     @SuppressLint("WrongConstant")
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding =DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false);
         viewmodel= ViewModelProviders.of(this,factory).get(HomeViewModel::class.java)
-
         MainActivity.binding.activityMainAppbarlayout.showView()
         MainActivity.binding.selectStore.showView()
         MainActivity.binding.selectStore.setTypeface(UbboFreshApp.instance?.latoregular)
         MainActivity.binding.activityMainToolbarTitle.setTypeface(UbboFreshApp.instance?.latoregular)
         MainActivity.binding.activityMainToolbarTitle.setText(getStringData(preference,Constants.saveStorename))
-
         spotlightlist= ArrayList();
-        val model1=SpotLightModel()
-        model1.name="Top Selling"
-        spotlightlist?.add(model1)
-        val model2=SpotLightModel()
-        model2.name="Deals for you"
-        spotlightlist?.add(model2)
         binding.spootListRecyler.setHasFixedSize(true)
         binding.spootListRecyler.layoutManager=LinearLayoutManager(context,RecyclerView.HORIZONTAL,false)
-        val adapter= activity?.let { SpotLightScrollAdapter(it, spotlightlist!!,object : ItemClickListener {
+        spotLightAdapter= activity?.let { SpotLightScrollAdapter(it, spotlightlist!!,object : ItemClickListener {
             override fun onItemClick(view: View?, position: Int) {
                 if(position==0)
                 {
@@ -117,7 +105,7 @@ class HomeFragment() : InjectionFragment() {
             }
 
         })}
-        binding.spootListRecyler.adapter=adapter
+        binding.spootListRecyler.adapter=spotLightAdapter
         //binding.offersRecyclerview.setHasFixedSize(true)
         //binding.offersRecyclerview.layoutManager=LinearLayoutManager(context,RecyclerView.HORIZONTAL,false)
         binding.dealsForYou.itemAnimator=null
@@ -219,12 +207,9 @@ class HomeFragment() : InjectionFragment() {
         getOfferDetails()
         getOfferTails()
         getTopDetails()
-        getDealsForyou()
         reloadSlideImages()
         reloadSlideOffersImages()
-
-        return binding.root;
-
+        return binding.root
     }
     fun init()
     {
@@ -546,6 +531,10 @@ class HomeFragment() : InjectionFragment() {
                     binding.topRatedRecyclerview.showView()
                     binding.spotLayout.showView()
                     binding.spootListRecyler.showView()
+                    binding.topSelling.setText(topProductsResponse?.heading)
+                    val model1 = SpotLightModel()
+                    model1.name = topProductsResponse?.heading
+                    spotlightlist?.add(model1)
                     for(i in 0 until topProductsResponse?.data!!.size)
                     {
                         val model=topProductsResponse?.data?.get(i)
@@ -584,6 +573,9 @@ class HomeFragment() : InjectionFragment() {
                     binding.viewallTopSelling.hideView()
                     binding.topSelling.hideView()
                     binding.topRatedRecyclerview.hideView()
+                }
+                launch {
+                    getDealsForyou()
                 }
             }catch (e: NoInternetExcetion)
             {
@@ -627,6 +619,11 @@ class HomeFragment() : InjectionFragment() {
                     binding.dealsForYou.showView()
                     binding.spotLayout.showView()
                     binding.spootListRecyler.showView()
+                    val model2 = SpotLightModel()
+                    model2.name = dealsProductsResponse?.heading
+                    spotlightlist?.add(model2)
+                    spotLightAdapter?.notifyDataSetChanged()
+                    binding.dealsFor.setText(dealsProductsResponse?.heading)
                     for(i in 0 until dealsProductsResponse?.data!!.size)
                     {
                         val model=dealsProductsResponse?.data?.get(i)

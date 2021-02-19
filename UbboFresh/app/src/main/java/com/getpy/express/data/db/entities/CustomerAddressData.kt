@@ -8,7 +8,8 @@ data class CustomerAddressData(
         var ID: String?,
         var PostalCodeZipCode: String?,
         var StoreCustomerId: String?,
-        var TagName: String?,
+        @PrimaryKey
+        var TagName: String,
         var PrimaryPhone: String?,
         var FirstName: String?,
         var Address2: String?,
@@ -22,8 +23,7 @@ data class CustomerAddressData(
         var State: String?,
         var Country: String?,
         var Society_BuildingNo: String?,
-        @PrimaryKey
-        var MerchantBranchId: String
+        var MerchantBranchId: String?
 ):Serializable
 {
         var ischecked:Boolean=false

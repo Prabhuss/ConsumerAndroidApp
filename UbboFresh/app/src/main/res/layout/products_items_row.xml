@@ -26,7 +26,6 @@
                     <ImageView
                         android:id="@+id/image"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginTop="@dimen/_5sdp"
                         android:src="@drawable/ic_no_image_found"
                         android:layout_width="@dimen/_90sdp"
                         android:layout_height="@dimen/_90sdp"/>
@@ -34,8 +33,8 @@
                         android:id="@+id/text1"
                         android:layout_below="@id/image"
                         android:maxLines="4"
+                        android:text="product name is long in this case"
                         android:layout_centerHorizontal="false"
-                        android:layout_marginTop="@dimen/_5sdp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
                 </RelativeLayout>

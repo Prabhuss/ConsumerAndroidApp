@@ -74,8 +74,24 @@ class MainActivity : AppCompatActivity(),KodeinAware
                     e.printStackTrace()
                 }
             }
+        }else
+        {
+            lifecycleScope.launch {
+                try {
+                    UbboFreshApp.instance?.carItemsList= appDataBase.CustomerAddressDao().getCartData(
+                            preference.getIntData(Constants.saveMerchantIdKey).toString(),
+                            preference.getStringData(Constants.saveMobileNumkey))
+                    setupBadge()
+                }catch (e:CancellationException)
+                {
+                    Log.i("scope","job is canceled")
+                }
+                catch (e:Exception)
+                {
+                    e.printStackTrace()
+                }
+            }
         }
-
         AppCenter.start(
             application, "9e64f71e-a876-4d54-a2ce-3c4c1ea86334",
             Analytics::class.java, Crashes::class.java

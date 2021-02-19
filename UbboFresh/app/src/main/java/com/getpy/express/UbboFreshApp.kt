@@ -40,6 +40,8 @@ class UbboFreshApp : Application(),KodeinAware{
         instance=this
     }
 
+    var instructionString:String?=null
+
     var isComingFromReOrder:Boolean=false
     var isSearchBoxclicked:Boolean=false
     var isCmgfromHomeItemClick:Boolean=false

@@ -37,7 +37,9 @@ import com.getpy.express.ui.home.InjectionFragment
 import com.getpy.express.ui.main.MainActivity
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.launch
+import org.json.JSONObject
 import org.kodein.di.generic.instance
+import retrofit2.http.Field
 
 
 class ProductsFragment : InjectionFragment() {
@@ -329,7 +331,7 @@ class ProductsFragment : InjectionFragment() {
                     val model=prodResponse.data?.get(i)
                     model?.mobileNumber=preference.getStringData(Constants.saveMobileNumkey)
                 }
-                UbboFreshApp.instance?.pordlist = prodResponse?.data
+                UbboFreshApp.instance?.pordlist = prodResponse.data
                 UbboFreshApp.instance?.mainAndSubCatDataModel=smodel
                 binding.viewPager.adapter?.notifyDataSetChanged()
             }catch (e:NoInternetExcetion)
@@ -386,6 +388,17 @@ class ProductsFragment : InjectionFragment() {
     }
     suspend fun callProducts(categoryname:String):ProductsResponse
     {
+
+        val jsonobject=JSONObject()
+        jsonobject.put("merchant_id",preference.getIntData(Constants.saveMerchantIdKey))
+        jsonobject.put("phone_number",preference.getStringData(Constants.saveMobileNumkey))
+        jsonobject.put("access_key",preference.getStringData(Constants.saveaccesskey))
+        jsonobject.put("category_name",categoryname)
+        jsonobject.put("page_size",10)
+        jsonobject.put("page_number", currentPage)
+        jsonobject.put("lastSyncDate","")
+
+
         return viewmodel.getProducts(
                     preference.getIntData(Constants.saveMerchantIdKey),
                     preference.getStringData(Constants.saveMobileNumkey),

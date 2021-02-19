@@ -18,6 +18,7 @@ import com.getpy.express.Utils.NoInternetExcetion
 import com.getpy.express.Utils.okDialogWithOneAct
 import com.getpy.express.Utils.snakBar
 import com.getpy.express.adapter.OrderSummaryAdapter
+import com.getpy.express.data.db.AppDataBase
 import com.getpy.express.data.db.entities.ProductsDataModel
 import com.getpy.express.data.model.CustomerInvoiceData
 import com.getpy.express.data.model.InvocieLineItems
@@ -34,6 +35,7 @@ import org.kodein.di.generic.instance
 
 class OrderSummaryActivity : AppCompatActivity(),KodeinAware{
     override val kodein by kodein()
+    private val appDataBase: AppDataBase by instance()
     private val factory: OrderSumModelFactory by instance()
     private val preference: PreferenceProvider by instance()
     lateinit var binding:ActivityOrderSummaryBinding
@@ -103,11 +105,12 @@ class OrderSummaryActivity : AppCompatActivity(),KodeinAware{
                             preference.getStringData(Constants.saveaccesskey),
                             it)
                 }
-                UbboFreshApp.instance?.carItemsList= ArrayList<ProductsDataModel>()
+                //UbboFreshApp.instance?.carItemsList= ArrayList<ProductsDataModel>()
                 for(i in 0 until response?.data!!.size)
                 {
                     val model=response.data?.get(i)
                     model?.itemCount= 1
+                    model?.mobileNumber=preference.getStringData(Constants.saveMobileNumkey)
                     model?.citrineProdId?.let { UbboFreshApp.instance?.hashMap?.put(it,model) }
                     model?.let { UbboFreshApp.instance?.carItemsList?.add(it) }
                 }

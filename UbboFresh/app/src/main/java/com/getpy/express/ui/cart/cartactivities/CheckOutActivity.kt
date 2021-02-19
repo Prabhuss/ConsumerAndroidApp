@@ -125,8 +125,6 @@ class CheckOutActivity : AppCompatActivity(), KodeinAware {
                 return@OnClickListener
             }
             getDistance(customerAddressData?.Latitude, customerAddressData?.Longitude);
-
-
         })
 
         init()
@@ -206,6 +204,7 @@ class CheckOutActivity : AppCompatActivity(), KodeinAware {
         Invoice.addProperty("PaymentMode","COD")
         Invoice.addProperty("DeliverAddressId",customerAddressData?.ID)
         Invoice.addProperty("PaymentOrderId","NULL")
+        Invoice.addProperty("DeliveryInstruction",UbboFreshApp.instance?.instructionString)
         order_details.add("Invoice",Invoice)
         for(i in 0 until UbboFreshApp.instance?.carItemsList!!.size)
         {
@@ -252,6 +251,7 @@ class CheckOutActivity : AppCompatActivity(), KodeinAware {
           try {
                  val response=viewModel.createOrder(jsonObject)
                  binding.pbar.dismiss()
+                 UbboFreshApp.instance?.instructionString=""
                  if(response.status.equals("Failure"))
                  {
                      val intent=Intent(this@CheckOutActivity,OrderStatusActivity::class.java)
@@ -302,11 +302,9 @@ class CheckOutActivity : AppCompatActivity(), KodeinAware {
                         }
                         val list = database.CustomerAddressDao().getCustAddrData(
                                 preference.getStringData(Constants.saveMobileNumkey),
-                                preference.getIntData(Constants.saveMerchantIdKey)
-                        )
-
+                                preference.getIntData(Constants.saveMerchantIdKey))
                         //Baypass local database
-                        adapter = response.data?.let{it}?.let { CustomerAddressAdapter(this@CheckOutActivity, it) }
+                        adapter = list.let { CustomerAddressAdapter(this@CheckOutActivity, it) }
                         //comment above line and uncomment below line to use local database for customer address
                         //adapter = CustomerAddressAdapter(this@CheckOutActivity, list)
                         binding.recyclerview.adapter = adapter

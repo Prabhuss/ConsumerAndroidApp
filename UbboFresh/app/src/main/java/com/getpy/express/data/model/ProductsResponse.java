@@ -7,6 +7,14 @@ import java.util.ArrayList;
 public class ProductsResponse {
     private ArrayList<ProductsDataModel> data;
 
+    public String getHeading() {
+        return heading;
+    }
+
+    public void setHeading(String heading) {
+        this.heading = heading;
+    }
+
     private String heading;
 
     private String status;

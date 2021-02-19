@@ -119,7 +119,7 @@ class CartItmesAdapter(val preference: PreferenceProvider,val fm:FragmentManager
         map.put("productid", model.citrineProdId.toString())
         map.put("productname",model.productName.toString())
         map.put("itemcount", model.itemCount.toString())
-        Analytics.trackEvent("product item add but clicked", map)
+        Analytics.trackEvent("product item add button clicked", map)
 
         MainActivity.setupBadge()
         CartFragment.runnable?.let { Handler().postDelayed(it,10) }

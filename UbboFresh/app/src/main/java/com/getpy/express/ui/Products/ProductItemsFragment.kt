@@ -3,17 +3,16 @@ package com.getpy.express.ui.Products
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import com.getpy.fresh.views.Products.ProductsFragment
 import com.getpy.express.R
 import com.getpy.express.UbboFreshApp
 import com.getpy.express.Utils.*
@@ -25,6 +24,7 @@ import com.getpy.express.data.preferences.PreferenceProvider
 import com.getpy.express.databinding.FragmentItemsProductBinding
 import com.getpy.express.listeners.PaginationListener
 import com.getpy.express.ui.home.InjectionFragment
+import com.getpy.fresh.views.Products.ProductsFragment
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.launch
 import org.kodein.di.generic.instance
@@ -45,6 +45,7 @@ class ProductItemsFragment() : InjectionFragment() ,SwipeRefreshLayout.OnRefresh
     private val factory: ProductsViewModelFactory by instance()
     private val preference: PreferenceProvider by instance()
     lateinit var viewmodel:ProductsViewModel
+    private var isLoadFirstTime:Boolean=false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -64,9 +65,9 @@ class ProductItemsFragment() : InjectionFragment() ,SwipeRefreshLayout.OnRefresh
             adapter = activity?.let {
                 activity?.supportFragmentManager?.let { it1 ->
                     PostRecyclerAdapter(preference,it1, it, ArrayList<ProductsDataModel>())
-
                 }
             }
+            adapter?.hashMap= LinkedHashSet()
             binding.recyclerview.setAdapter(adapter)
         }
         if (ProductsFragment.currentPage != PaginationListener.PAGE_START) adapter!!.removeLoading()
@@ -74,8 +75,10 @@ class ProductItemsFragment() : InjectionFragment() ,SwipeRefreshLayout.OnRefresh
         for(i in 0 until UbboFreshApp.instance?.pordlist!!.size)
         {
             val model=UbboFreshApp.instance?.pordlist?.get(i)
-            model?.let { adapter?.mPostItems?.add(it) }
+            model?.let { adapter?.hashMap?.add(it) }
         }
+        adapter?.mPostItems=ArrayList()
+        adapter?.hashMap?.let { adapter?.mPostItems?.addAll(it) }
         binding.recyclerview.setAdapter(adapter)
         adapter?.notifyDataSetChanged()
         binding.swipeRefresh.isRefreshing = false
@@ -93,7 +96,7 @@ class ProductItemsFragment() : InjectionFragment() ,SwipeRefreshLayout.OnRefresh
                 ProductsFragment.isLastPage = true
             }else
             {
-                if(UbboFreshApp.instance?.pordlist?.size!!>=9)
+                if(UbboFreshApp.instance?.pordlist?.size!!>9)
                 {
                     ProductsFragment.isLastPage = false
                     adapter!!.addLoading()

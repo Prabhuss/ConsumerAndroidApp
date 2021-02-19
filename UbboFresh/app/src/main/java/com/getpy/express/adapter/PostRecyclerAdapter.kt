@@ -21,10 +21,15 @@ import com.getpy.express.databinding.ItemLoadingBinding
 import com.getpy.express.databinding.ProductsItemsRowBinding
 import com.getpy.express.ui.main.MainActivity
 import java.lang.IllegalArgumentException
+import java.util.*
 import kotlin.collections.ArrayList
+import kotlin.collections.HashMap
+import kotlin.collections.HashSet
+import kotlin.collections.LinkedHashSet
 
-class PostRecyclerAdapter(val preference: PreferenceProvider,val fm: FragmentManager, val context: Context,  val mPostItems: ArrayList<ProductsDataModel>?) : RecyclerView.Adapter<BaseViewHolder>() {
+class PostRecyclerAdapter(val preference: PreferenceProvider, val fm: FragmentManager, val context: Context, var mPostItems: ArrayList<ProductsDataModel>?) : RecyclerView.Adapter<BaseViewHolder>() {
     private var isLoaderVisible = false
+    var hashMap:LinkedHashSet<ProductsDataModel>?=null
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder {
         return when (viewType) {
             VIEW_TYPE_NORMAL -> {
@@ -61,13 +66,14 @@ class PostRecyclerAdapter(val preference: PreferenceProvider,val fm: FragmentMan
            val model=postItems.get(i)
            model?.let { mPostItems?.add(it) }
         }
+
         notifyDataSetChanged()
     }
 
     fun addLoading() {
         isLoaderVisible = true
-        mPostItems!!.add(ProductsDataModel())
-        notifyItemInserted(mPostItems.size - 1)
+        mPostItems?.add(ProductsDataModel())
+        notifyItemInserted(mPostItems?.size!! - 1)
     }
     fun LoadingItems() {
         isLoaderVisible = false
@@ -78,7 +84,7 @@ class PostRecyclerAdapter(val preference: PreferenceProvider,val fm: FragmentMan
         val position = mPostItems!!.size - 1
         val item = getItem(position)
         if (item != null) {
-            mPostItems.removeAt(position)
+            mPostItems?.removeAt(position)
             notifyItemRemoved(position)
         }
     }

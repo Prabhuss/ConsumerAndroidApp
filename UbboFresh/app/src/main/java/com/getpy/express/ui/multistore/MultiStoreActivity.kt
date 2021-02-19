@@ -60,6 +60,7 @@ class MultiStoreActivity : AppCompatActivity(),KodeinAware  {
 
     fun callCategories(model: MultiStoreDataModel)
     {
+        UbboFreshApp.instance?.instructionString=""
         preference.saveBoolData(Constants.saveMultistore,false)
         preference.saveBoolData(Constants.savelogin,true)
         preference.saveStringData(Constants.saveStorename,model.NameofStore.toString())

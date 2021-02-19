@@ -6,6 +6,17 @@ import androidx.room.PrimaryKey;
 
 @Entity
 public class ProductsDataModel {
+
+    public boolean isReloadCalled() {
+        return isReloadCalled;
+    }
+
+    public void setReloadCalled(boolean reloadCalled) {
+        isReloadCalled = reloadCalled;
+    }
+
+    public boolean isReloadCalled;
+
     public String getStatus() {
         return status;
     }

@@ -58,7 +58,7 @@
                                 android:stretchMode="columnWidth"
                                 android:gravity="center"
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent" />
+                                android:layout_height="wrap_content" />
                         </RelativeLayout>
                         <RelativeLayout
                             android:id="@+id/spot_layout"
@@ -184,7 +184,7 @@
                         <RelativeLayout
                             android:layout_below="@+id/deals_layut_scroll"
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/_150sdp"/>
+                            android:layout_height="@dimen/_100sdp"/>
                     </RelativeLayout>
 
 

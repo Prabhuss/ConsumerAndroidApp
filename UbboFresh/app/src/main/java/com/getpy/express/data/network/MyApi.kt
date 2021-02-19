@@ -259,7 +259,7 @@ interface MyApi {
             @Field("page_number")page_number:Int
     ):Response<CampaignCustomerNotificationDetails>
 
-    @POST("v2/order/NewCreateOrder")
+    @POST("v2/order/CreateOrderNew")
     suspend fun CreateOrder (@Body gson: JsonObject):Response<OrderResponse>
 
     companion object{

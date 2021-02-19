@@ -242,6 +242,7 @@ fun Context.okLogOutDialog(activity: Activity,preference:PreferenceProvider,titl
     binding.message.setTypeface(UbboFreshApp.instance?.latoregular)
     binding.okText.setOnClickListener {
         dialog.dismiss()
+        UbboFreshApp.instance?.instructionString=""
         preference.saveBoolData(Constants.saveMultistore,false)
         preference.saveBoolData(Constants.savelogin,false)
         val intent= Intent(this,LoginActivity::class.java)
