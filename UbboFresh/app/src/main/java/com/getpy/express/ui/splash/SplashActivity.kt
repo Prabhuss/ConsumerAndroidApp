@@ -4,6 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.animation.AnimationUtils
+import android.widget.ImageView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.lifecycle.lifecycleScope
@@ -30,6 +32,13 @@ class SplashActivity : AppCompatActivity(),KodeinAware {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
+        val stb = AnimationUtils.loadAnimation(this, R.anim.stb)
+        val btt = AnimationUtils.loadAnimation(this, R.anim.btt)
+        var iconImage = findViewById(R.id.imageView) as ImageView
+        var getPYImage = findViewById(R.id.biz_text) as ImageView
+        iconImage.startAnimation(stb)
+        getPYImage.startAnimation(btt)
+
         splashViewModel=ViewModelProviders.of(this).get(SplashViewModel::class.java)
         splashViewModel.assainCustomFonts(this)
         lifecycleScope.launch {
